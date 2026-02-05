@@ -488,10 +488,337 @@
       fill: none;
     }
 
+    /* Deployment Process Section */
+    .process-section {
+      padding: 6rem 2rem;
+      background: var(--color-bg-secondary);
+    }
+
+    .section_header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section_label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .section_label-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--gradient-brand);
+      border-radius: 50%;
+    }
+
+    .section_label-text {
+      font-family: var(--font-tech);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-text-muted);
+    }
+
+    .section_title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .section_description {
+      color: var(--color-text-muted);
+      font-size: 1.125rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .process_grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+    }
+
+    .process_step {
+      padding: 2rem;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      text-align: center;
+      transition: var(--transition-spring);
+      position: relative;
+    }
+
+    .process_step::after {
+      content: '→';
+      position: absolute;
+      right: -1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-lemon);
+      font-size: 1.5rem;
+      z-index: 1;
+    }
+
+    .process_step:last-child::after {
+      display: none;
+    }
+
+    .process_step:hover {
+      transform: translateY(-6px);
+      border-color: var(--color-lemon);
+    }
+
+    .process_number {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      background: var(--gradient-brand);
+      border-radius: 50%;
+      font-family: var(--font-display);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: white;
+    }
+
+    .process_title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .process_desc {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1024px) {
+      .process_grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .process_step:nth-child(3)::after,
+      .process_step:nth-child(5)::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .process_grid {
+        grid-template-columns: 1fr;
+      }
+      .process_step::after {
+        display: none;
+      }
+    }
+
+    /* Enterprise Integrations Section */
+    .integrations-section {
+      padding: 6rem 2rem;
+    }
+
+    .integrations_grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .integration_card {
+      padding: 2rem;
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      text-align: center;
+      transition: var(--transition-spring);
+    }
+
+    .integration_card:hover {
+      transform: translateY(-6px);
+      border-color: var(--color-accent);
+    }
+
+    .integration_logo {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 1.5rem;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .integration_logo svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--color-lemon);
+      transition: var(--transition);
+    }
+
+    .integration_card:hover .integration_logo {
+      background: var(--gradient-brand);
+      border-color: transparent;
+    }
+
+    .integration_card:hover .integration_logo svg {
+      fill: white;
+    }
+
+    .integration_name {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--color-text);
+    }
+
+    .integration_desc {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+    }
+
+    @media (max-width: 1024px) {
+      .integrations_grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .integrations_grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Security Section */
+    .security-section {
+      padding: 6rem 2rem;
+      background: var(--color-bg-secondary);
+    }
+
+    .security_grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .security_content h2 {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .security_content p {
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .security_features {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .security_feature {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      transition: var(--transition);
+    }
+
+    .security_feature:hover {
+      border-color: var(--color-lemon);
+    }
+
+    .security_feature-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--gradient-brand);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .security_feature-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: white;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    .security_feature-text {
+      font-size: 0.95rem;
+    }
+
+    .security_visual {
+      position: relative;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .security_badge {
+      width: 200px;
+      height: 200px;
+      background: var(--gradient-brand);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .security_badge::before {
+      content: '';
+      position: absolute;
+      inset: -20px;
+      border: 2px dashed var(--color-border);
+      border-radius: 50%;
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .security_badge svg {
+      width: 80px;
+      height: 80px;
+      stroke: white;
+      stroke-width: 1.5;
+      fill: none;
+    }
+
+    @media (max-width: 768px) {
+      .security_grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .security_visual {
+        order: -1;
+      }
+    }
+
     /* CTA Section */
     .cta-section {
       padding: 8rem 2rem;
-      background: var(--color-bg-secondary);
+      background: var(--color-bg);
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -808,7 +1135,7 @@
       </div>
       <h1 class="page-hero_title">Our <span class="page-hero_title-accent">Services</span></h1>
       <p class="page-hero_desc">
-        Six integrated capabilities designed to compound. Each service amplifies the others—that's how we engineer exponential growth.
+        Seven integrated capabilities designed to compound. Each service amplifies the others—that's how we engineer exponential growth.
       </p>
     </div>
   </section>
@@ -966,6 +1293,175 @@
         </div>
       </div>
 
+      <div class="service-detail">
+        <div class="service-detail_grid">
+          <div class="service-detail_number">07</div>
+          <div class="service-detail_content">
+            <div class="service-detail_icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="8" width="18" height="12" rx="2"/>
+                <path d="M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/>
+                <circle cx="12" cy="14" r="2"/>
+                <path d="M8 14h.01M16 14h.01"/>
+              </svg>
+            </div>
+            <h2 class="service-detail_title">Custom AI Agent Builder</h2>
+            <p class="service-detail_desc">Enterprise-grade AI agents built for your specific workflows. Secure VPS deployment with dedicated support, on-site training, and seamless integration with your existing platforms.</p>
+            <div class="service-detail_list">
+              <span class="service-detail_item">Custom Agent Development</span>
+              <span class="service-detail_item">Secure VPS Deployment</span>
+              <span class="service-detail_item">On-Site Training</span>
+              <span class="service-detail_item">Dedicated Support</span>
+              <span class="service-detail_item">Enterprise Integrations</span>
+              <span class="service-detail_item">Written Permission Protocols</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Deployment Process Section -->
+  <section class="process-section">
+    <div class="section_container">
+      <div class="section_header">
+        <div class="section_label">
+          <span class="section_label-dot"></span>
+          <span class="section_label-text">The Process</span>
+        </div>
+        <h2 class="section_title">From Consultation to Deployment</h2>
+        <p class="section_description">Our structured approach ensures your AI agent is built right, deployed securely, and supported continuously.</p>
+      </div>
+
+      <div class="process_grid">
+        <div class="process_step">
+          <span class="process_number">1</span>
+          <h3 class="process_title">Discovery Call</h3>
+          <p class="process_desc">Requirements gathering, platform assessment, and integration mapping</p>
+        </div>
+        <div class="process_step">
+          <span class="process_number">2</span>
+          <h3 class="process_title">Agent Development</h3>
+          <p class="process_desc">Custom skill training, enterprise integration, and security configuration</p>
+        </div>
+        <div class="process_step">
+          <span class="process_number">3</span>
+          <h3 class="process_title">Secure Deployment</h3>
+          <p class="process_desc">Isolated VPS environment with written permission protocols</p>
+        </div>
+        <div class="process_step">
+          <span class="process_number">4</span>
+          <h3 class="process_title">Training & Handoff</h3>
+          <p class="process_desc">On-site training sessions, documentation delivery, and team enablement</p>
+        </div>
+        <div class="process_step">
+          <span class="process_number">5</span>
+          <h3 class="process_title">Ongoing Support</h3>
+          <p class="process_desc">Dedicated support channel, performance monitoring, and continuous improvement</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enterprise Integrations Section -->
+  <section class="integrations-section">
+    <div class="section_container">
+      <div class="section_header">
+        <div class="section_label">
+          <span class="section_label-dot"></span>
+          <span class="section_label-text">Integrations</span>
+        </div>
+        <h2 class="section_title">Enterprise-Ready Connections</h2>
+        <p class="section_description">Our AI agents connect seamlessly with the platforms you already use.</p>
+      </div>
+
+      <div class="integrations_grid">
+        <div class="integration_card">
+          <div class="integration_logo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.75 11.35a4.32 4.32 0 0 1-.79-.08 3.9 3.9 0 0 1-.73-.23l-.17-.08a4.5 4.5 0 0 1-.49-.26l-.15-.1a4.94 4.94 0 0 1-.64-.49 5.3 5.3 0 0 1-.82-1 5.3 5.3 0 0 1-.73-1.7 6.48 6.48 0 0 1-.15-1.42 7.9 7.9 0 0 1 .08-1.2A8.14 8.14 0 0 1 14.3 4a7.4 7.4 0 0 1 .35-.8c.32-.63 1.2-.72 1.58-.15a.9.9 0 0 1 .11.2 6.3 6.3 0 0 0 .52.92A6.06 6.06 0 0 0 18 5.5a6.5 6.5 0 0 0 .98.57c.3.13.6.23.92.31a5.3 5.3 0 0 0 .9.13h.14c.4 0 .75.32.75.75v3.1a1 1 0 0 1-.94 1z"/>
+              <path d="M5.25 11.35a4.32 4.32 0 0 0 .79-.08 3.9 3.9 0 0 0 .73-.23l.17-.08a4.5 4.5 0 0 0 .49-.26l.15-.1a4.94 4.94 0 0 0 .64-.49 5.3 5.3 0 0 0 .82-1 5.3 5.3 0 0 0 .73-1.7 6.48 6.48 0 0 0 .15-1.42 7.9 7.9 0 0 0-.08-1.2A8.14 8.14 0 0 0 9.7 4a7.4 7.4 0 0 0-.35-.8c-.32-.63-1.2-.72-1.58-.15a.9.9 0 0 0-.11.2 6.3 6.3 0 0 1-.52.92A6.06 6.06 0 0 1 6 5.5a6.5 6.5 0 0 1-.98.57c-.3.13-.6.23-.92.31a5.3 5.3 0 0 1-.9.13h-.14c-.4 0-.75.32-.75.75v3.1a1 1 0 0 0 .94 1z"/>
+              <path d="M12 22c4.97 0 9-4.03 9-9v-1.5c0-.55-.45-1-1-1h-4c-.55 0-1 .45-1 1V13c0 1.66-1.34 3-3 3s-3-1.34-3-3v-1.5c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1V13c0 4.97 4.03 9 9 9z"/>
+            </svg>
+          </div>
+          <span class="integration_name">AWS</span>
+          <span class="integration_desc">Amazon Web Services</span>
+        </div>
+        <div class="integration_card">
+          <div class="integration_logo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+          </div>
+          <span class="integration_name">Google Cloud</span>
+          <span class="integration_desc">Cloud Platform</span>
+        </div>
+        <div class="integration_card">
+          <div class="integration_logo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+              <path fill="#0f1410" d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
+            </svg>
+          </div>
+          <span class="integration_name">Oracle</span>
+          <span class="integration_desc">Enterprise Platform</span>
+        </div>
+        <div class="integration_card">
+          <div class="integration_logo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM10 17l-3.5-3.5 1.41-1.41L10 14.17l4.59-4.58L16 11l-6 6z"/>
+            </svg>
+          </div>
+          <span class="integration_name">Custom APIs</span>
+          <span class="integration_desc">Your Enterprise Stack</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security Section -->
+  <section class="security-section">
+    <div class="section_container">
+      <div class="security_grid">
+        <div class="security_content">
+          <h2>Enterprise-Grade Security</h2>
+          <p>Your AI agents are deployed on isolated VPS environments with comprehensive security protocols. We take security seriously—every agent operates within documented permission boundaries.</p>
+
+          <div class="security_features">
+            <div class="security_feature">
+              <div class="security_feature-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <span class="security_feature-text">Isolated VPS server environments</span>
+            </div>
+            <div class="security_feature">
+              <div class="security_feature-icon">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <span class="security_feature-text">Written permission protocols</span>
+            </div>
+            <div class="security_feature">
+              <div class="security_feature-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+              </div>
+              <span class="security_feature-text">Trained skills with documented capabilities</span>
+            </div>
+            <div class="security_feature">
+              <div class="security_feature-icon">
+                <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              </div>
+              <span class="security_feature-text">Full compliance documentation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="security_visual">
+          <div class="security_badge">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 

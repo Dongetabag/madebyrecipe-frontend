@@ -27,3 +27,4 @@ intake/submissions.csv
 
 # Sensitive data
 data/talent-applications.json
+.vercel

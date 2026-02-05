@@ -467,7 +467,8 @@
     }
 
     .form_input,
-    .form_textarea {
+    .form_textarea,
+    .form_select {
       width: 100%;
       background: var(--color-bg-secondary);
       border: 1px solid var(--color-border);
@@ -479,8 +480,23 @@
       transition: var(--transition);
     }
 
+    .form_select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23F5D547' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1.25rem center;
+    }
+
+    .form_select option {
+      background: var(--color-bg-secondary);
+      color: var(--color-text);
+      padding: 0.5rem;
+    }
+
     .form_input:focus,
-    .form_textarea:focus {
+    .form_textarea:focus,
+    .form_select:focus {
       outline: none;
       border-color: var(--color-lemon);
       box-shadow: 0 0 0 3px var(--color-accent-glow);
@@ -738,7 +754,7 @@
       </div>
       <h1 class="page-hero_title">Let's <span class="page-hero_title-accent">Talk</span></h1>
       <p class="page-hero_desc">
-        Ready to stop competing and start dominating? Book a discovery call or drop us a line.
+        Ready to stop competing and start dominating? Whether it's marketing, branding, or custom AI agents—let's talk.
       </p>
     </div>
   </section>
@@ -768,6 +784,10 @@
               <a href="https://calendly.com/contact-madebyrecipe/30min" target="_blank">calendly.com/contact-madebyrecipe</a>
             </span>
           </div>
+          <div class="contact_item">
+            <span class="contact_item-label">AI Agent Consultation</span>
+            <span class="contact_item-value">Custom AI agents deployed in 2-4 weeks</span>
+          </div>
         </div>
         <a href="https://calendly.com/contact-madebyrecipe/30min" target="_blank" class="contact_cta-btn">Schedule Discovery Call</a>
       </div>
@@ -784,6 +804,20 @@
         <div class="form_group">
           <label class="form_label">Company</label>
           <input type="text" class="form_input" placeholder="Your company">
+        </div>
+        <div class="form_group">
+          <label class="form_label">Service Interest</label>
+          <select class="form_select">
+            <option value="">Select a service...</option>
+            <option value="social-media">Social Media Marketing</option>
+            <option value="brand-redesign">Brand Redesign</option>
+            <option value="pitching">Pitching & Presentations</option>
+            <option value="events">Event Curation</option>
+            <option value="business">Business Services</option>
+            <option value="seo">SEO & Digital Growth</option>
+            <option value="ai-agent">Custom AI Agent Builder</option>
+            <option value="other">Other / Multiple Services</option>
+          </select>
         </div>
         <div class="form_group">
           <label class="form_label">Message</label>
