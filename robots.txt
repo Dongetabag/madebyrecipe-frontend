@@ -1,0 +1,12 @@
+# Recipe Labs - robots.txt
+# https://madebyrecipe.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://madebyrecipe.com/sitemap.xml
+
+# Crawl-delay (optional, for polite crawling)
+Crawl-delay: 1
+

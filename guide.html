@@ -1,0 +1,2039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Primary Meta Tags -->
+  <title>Platform Guide | Recipe Labs Internal Documentation</title>
+  <meta name="title" content="Platform Guide | Recipe Labs Internal Documentation">
+  <meta name="description" content="Comprehensive guide for Recipe Labs employees and partners. Learn how to use Lead Gen, Email Builder, Playbook Generator, Media Scraper, and Tools Bundle.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23F5D547'/><stop offset='50%25' stop-color='%23D4B83A'/><stop offset='100%25' stop-color='%234A7C4E'/></linearGradient></defs><rect fill='url(%23g)' rx='16' width='100' height='100'/><path d='M30 25h25c11 0 20 9 20 20s-9 20-20 20h-5l20 10H50L30 65V25zm10 10v20h15c5.5 0 10-4.5 10-10s-4.5-10-10-10H40z' fill='white'/></svg>">
+
+  <style>
+    /* ========================================
+       RECIPE LABS - PLATFORM GUIDE
+       Internal Documentation System
+    ======================================== */
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-bg: #0f1410;
+      --color-bg-secondary: #141a16;
+      --color-bg-tertiary: #1a211c;
+      --color-text: #ffffff;
+      --color-text-muted: #a8b4a4;
+      --color-text-dim: #5a685a;
+      --color-lemon: #F5D547;
+      --color-lemon-light: #F7E07A;
+      --color-lemon-dark: #D4B83A;
+      --color-forest: #4A7C4E;
+      --color-mint: #9AA590;
+      --color-sage: #6B8E6B;
+      --color-accent: #F5D547;
+      --color-accent-glow: rgba(245, 213, 71, 0.4);
+      --gradient-brand: linear-gradient(135deg, #F5D547 0%, #D4B83A 50%, #4A7C4E 100%);
+      --gradient-spectrum: linear-gradient(90deg, #F5D547, #D4B83A, #4A7C4E, #6B8E6B, #0f1410);
+      --color-border: #1f2a1f;
+      --color-border-light: #2d3a2d;
+      --font-display: 'Orbitron', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+      --font-tech: 'Rajdhani', sans-serif;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    /* ========================================
+       TECH OVERLAY - Scanlines & Grid
+    ======================================== */
+    .tech-overlay {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9998;
+      overflow: hidden;
+    }
+
+    .scanlines {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.03) 2px,
+        rgba(0, 0, 0, 0.03) 4px
+      );
+      opacity: 0.5;
+    }
+
+    .tech-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(245, 213, 71, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245, 213, 71, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      opacity: 0.3;
+    }
+
+    .tech-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    }
+
+    /* Brand Spectrum Bar */
+    .brand-spectrum {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-spectrum);
+      z-index: 9999;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1rem 2rem;
+      background: rgba(15, 20, 16, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .navbar_component {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar_brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .navbar_logo {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      letter-spacing: 0.1em;
+    }
+
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      background: var(--gradient-brand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      border-radius: 10px;
+      transition: var(--transition-spring);
+    }
+
+    .logo-text {
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .logo-text-lab {
+      font-family: var(--font-tech);
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.2em;
+    }
+
+    .navbar_links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .navbar_link {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      transition: var(--transition);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+    }
+
+    .navbar_link:hover {
+      color: var(--color-text);
+      background: var(--color-bg-secondary);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.75rem;
+      background: rgba(74, 124, 78, 0.2);
+      border: 1px solid var(--color-forest);
+      border-radius: 50px;
+      font-size: 0.75rem;
+      color: var(--color-forest);
+      font-weight: 600;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--color-forest);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    /* Sidebar */
+    .layout {
+      display: flex;
+      margin-top: 73px;
+    }
+
+    .sidebar {
+      width: 280px;
+      height: calc(100vh - 73px);
+      position: fixed;
+      left: 0;
+      top: 73px;
+      background: var(--color-bg-secondary);
+      border-right: 1px solid var(--color-border);
+      padding: 2rem 1.5rem;
+      overflow-y: auto;
+    }
+
+    .sidebar_section {
+      margin-bottom: 2rem;
+    }
+
+    .sidebar_title {
+      font-family: var(--font-tech);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-text-dim);
+      margin-bottom: 1rem;
+      padding-left: 0.5rem;
+    }
+
+    .sidebar_nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .sidebar_link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      transition: var(--transition);
+    }
+
+    .sidebar_link:hover {
+      background: var(--color-bg-tertiary);
+      color: var(--color-text);
+    }
+
+    .sidebar_link.active {
+      background: var(--gradient-brand);
+      color: var(--color-bg);
+    }
+
+    .sidebar_link-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sidebar_link-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left: 280px;
+      flex: 1;
+      padding: 3rem 4rem;
+      max-width: calc(100% - 280px);
+    }
+
+    .content-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .content-header_label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .content-header_label-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--gradient-brand);
+      border-radius: 50%;
+    }
+
+    .content-header_label-text {
+      font-family: var(--font-tech);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-text-muted);
+    }
+
+    .content-header_title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .content-header_desc {
+      font-size: 1.125rem;
+      color: var(--color-text-muted);
+      max-width: 700px;
+      line-height: 1.7;
+    }
+
+    /* Section Styling */
+    .section {
+      margin-bottom: 4rem;
+    }
+
+    .section_title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section_title-number {
+      font-family: var(--font-tech);
+      font-size: 0.875rem;
+      color: var(--color-lemon);
+      background: rgba(245, 213, 71, 0.1);
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+    }
+
+    .section_content {
+      color: var(--color-text-muted);
+      line-height: 1.8;
+    }
+
+    .section_content p {
+      margin-bottom: 1rem;
+    }
+
+    .section_content strong {
+      color: var(--color-text);
+    }
+
+    /* Toggle/Accordion */
+    .toggle {
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+
+    .toggle_header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .toggle_header:hover {
+      background: var(--color-bg-tertiary);
+    }
+
+    .toggle_title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    .toggle_icon {
+      width: 32px;
+      height: 32px;
+      background: var(--color-bg-tertiary);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .toggle_icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--color-lemon);
+      stroke-width: 2;
+      fill: none;
+    }
+
+    .toggle_arrow {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.3s ease;
+    }
+
+    .toggle_arrow svg {
+      width: 100%;
+      height: 100%;
+      stroke: var(--color-text-muted);
+      stroke-width: 2;
+      fill: none;
+    }
+
+    .toggle.open .toggle_arrow {
+      transform: rotate(180deg);
+    }
+
+    .toggle_content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+
+    .toggle.open .toggle_content {
+      max-height: 2000px;
+    }
+
+    .toggle_inner {
+      padding: 0 1.5rem 1.5rem;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+    }
+
+    .toggle_inner p {
+      margin-bottom: 1rem;
+    }
+
+    .toggle_inner ul, .toggle_inner ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .toggle_inner li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Tool Cards */
+    .tool-card {
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: var(--transition);
+    }
+
+    .tool-card:hover {
+      border-color: var(--color-forest);
+    }
+
+    .tool-card_header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+
+    .tool-card_info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .tool-card_icon {
+      width: 50px;
+      height: 50px;
+      background: var(--color-bg-tertiary);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tool-card_icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--color-lemon);
+      stroke-width: 2;
+      fill: none;
+    }
+
+    .tool-card_title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .tool-card_url {
+      font-family: var(--font-tech);
+      font-size: 0.8rem;
+      color: var(--color-text-dim);
+    }
+
+    .tool-card_status {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(74, 124, 78, 0.15);
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color-forest);
+    }
+
+    .tool-card_status-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--color-forest);
+      border-radius: 50%;
+    }
+
+    .tool-card_desc {
+      color: var(--color-text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .tool-card_features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tool-card_feature {
+      padding: 0.5rem 1rem;
+      background: var(--color-bg-tertiary);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+
+    /* Info Box */
+    .info-box {
+      background: rgba(245, 213, 71, 0.05);
+      border: 1px solid rgba(245, 213, 71, 0.2);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .info-box_header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+      color: var(--color-lemon);
+    }
+
+    .info-box_header svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--color-lemon);
+      stroke-width: 2;
+      fill: none;
+    }
+
+    .info-box_content {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* Warning Box */
+    .warning-box {
+      background: rgba(255, 100, 100, 0.05);
+      border: 1px solid rgba(255, 100, 100, 0.2);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .warning-box_header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+      color: #ff6464;
+    }
+
+    .warning-box_header svg {
+      width: 20px;
+      height: 20px;
+      stroke: #ff6464;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    /* Code Block */
+    .code-block {
+      background: var(--color-bg-tertiary);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 1rem 0;
+      font-family: 'Monaco', 'Consolas', monospace;
+      font-size: 0.875rem;
+      color: var(--color-lemon);
+      overflow-x: auto;
+    }
+
+    /* Table */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--color-bg-secondary);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .data-table th {
+      background: var(--color-bg-tertiary);
+      padding: 1rem 1.5rem;
+      text-align: left;
+      font-family: var(--font-tech);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-muted);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .data-table td {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+    }
+
+    .data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .data-table tr:hover td {
+      background: var(--color-bg-tertiary);
+    }
+
+    .status-connected {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--color-forest);
+    }
+
+    .status-connected::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--color-forest);
+      border-radius: 50%;
+    }
+
+    /* Steps */
+    .steps {
+      margin: 1.5rem 0;
+    }
+
+    .step {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .step_number {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: var(--gradient-brand);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.875rem;
+      color: var(--color-bg);
+    }
+
+    .step_content {
+      flex: 1;
+      padding-top: 0.25rem;
+    }
+
+    .step_title {
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 0.5rem;
+    }
+
+    .step_desc {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* Quick Actions */
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .quick-action {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .quick-action:hover {
+      border-color: var(--color-lemon);
+      transform: translateY(-2px);
+    }
+
+    .quick-action_icon {
+      width: 40px;
+      height: 40px;
+      background: var(--color-bg-tertiary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .quick-action_icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--color-lemon);
+      stroke-width: 2;
+      fill: none;
+    }
+
+    .quick-action_label {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    .guide-footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .guide-footer_info {
+      color: var(--color-text-dim);
+      font-size: 0.875rem;
+    }
+
+    .guide-footer_version {
+      font-family: var(--font-tech);
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      padding: 0.5rem 1rem;
+      background: var(--color-bg-secondary);
+      border-radius: 50px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .sidebar {
+        display: none;
+      }
+
+      .main-content {
+        margin-left: 0;
+        max-width: 100%;
+        padding: 2rem;
+      }
+
+      .navbar_links {
+        display: none;
+      }
+    }
+
+    /* Mobile Navigation Toggle */
+    .mobile-nav-toggle {
+      display: none;
+      width: 40px;
+      height: 40px;
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 1024px) {
+      .mobile-nav-toggle {
+        display: flex;
+      }
+    }
+
+    .mobile-nav-toggle svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--color-text);
+      stroke-width: 2;
+      fill: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Tech Overlay -->
+  <div class="tech-overlay" aria-hidden="true">
+    <div class="scanlines"></div>
+    <div class="tech-grid"></div>
+    <div class="tech-vignette"></div>
+  </div>
+
+  <!-- Brand Spectrum Bar -->
+  <div class="brand-spectrum" aria-hidden="true"></div>
+  <!-- Brand Spectrum Bar -->
+  <div class="brand-spectrum"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar_component">
+      <div class="navbar_brand">
+        <a href="https://madebyrecipe.com" class="navbar_logo">
+          <span class="logo-mark">R</span>
+          <span class="logo-text">RCPE</span>
+          <span class="logo-text-lab">LAB</span>
+        </a>
+        <span class="badge">
+          <span class="badge-dot"></span>
+          Internal Guide
+        </span>
+      </div>
+
+      <div class="navbar_links">
+        <a href="https://madebyrecipe.com" target="_blank" class="navbar_link">Main Site</a>
+        <a href="https://leadgen.madebyrecipe.com" target="_blank" class="navbar_link">Lead Gen</a>
+        <a href="https://emailbuilder.madebyrecipe.com" target="_blank" class="navbar_link">Email Builder</a>
+        <a href="https://playbook.madebyrecipe.com" target="_blank" class="navbar_link">Playbook</a>
+        <a href="https://mediascraper.madebyrecipe.com" target="_blank" class="navbar_link">Media Scraper</a>
+        <a href="https://tools.madebyrecipe.com" target="_blank" class="navbar_link">Tools Bundle</a>
+      </div>
+
+      <button class="mobile-nav-toggle" id="mobileNavToggle">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar_section">
+        <h3 class="sidebar_title">Getting Started</h3>
+        <nav class="sidebar_nav">
+          <a href="#overview" class="sidebar_link active">
+            <span class="sidebar_link-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </span>
+            Overview
+          </a>
+          <a href="#apps-inventory" class="sidebar_link">
+            <span class="sidebar_link-icon">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </span>
+            Apps Inventory
+          </a>
+          <a href="#navigation" class="sidebar_link">
+            <span class="sidebar_link-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+            </span>
+            Navigation
+          </a>
+        </nav>
+      </div>
+
+      <div class="sidebar_section">
+        <h3 class="sidebar_title">Tools Documentation</h3>
+        <nav class="sidebar_nav">
+          <a href="#lead-gen" class="sidebar_link">
+            <span class="sidebar_link-icon">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            Lead Gen
+          </a>
+          <a href="#email-builder" class="sidebar_link">
+            <span class="sidebar_link-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </span>
+            Email Builder
+          </a>
+          <a href="#playbook-generator" class="sidebar_link">
+            <span class="sidebar_link-icon">
+              <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </span>
+            Playbook Generator
+          </a>
+          <a href="#media-scraper" class="sidebar_link">
+            <span class="sidebar_link-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </span>
+            Media Scraper
+          </a>
+          <a href="#tools-bundle" class="sidebar_link">
+            <span class="sidebar_link-icon">
+              <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </span>
+            Tools Bundle
+          </a>
+        </nav>
+      </div>
+
+      <div class="sidebar_section">
+        <h3 class="sidebar_title">Advanced</h3>
+        <nav class="sidebar_nav">
+          <a href="#workflows" class="sidebar_link">
+            <span class="sidebar_link-icon">
+              <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </span>
+            Workflows
+          </a>
+          <a href="#best-practices" class="sidebar_link">
+            <span class="sidebar_link-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </span>
+            Best Practices
+          </a>
+          <a href="#troubleshooting" class="sidebar_link">
+            <span class="sidebar_link-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </span>
+            Troubleshooting
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="content-header" id="overview">
+        <div class="content-header_label">
+          <span class="content-header_label-dot"></span>
+          <span class="content-header_label-text">Internal Documentation</span>
+        </div>
+        <h1 class="content-header_title">Recipe Labs Platform Guide</h1>
+        <p class="content-header_desc">
+          Comprehensive documentation for employees and partners. This guide covers all tools in the Recipe Labs ecosystem, from lead generation to content automation.
+        </p>
+      </header>
+
+      <!-- Quick Actions -->
+      <section class="section">
+        <h2 class="section_title">
+          <span class="section_title-number">00</span>
+          Quick Access
+        </h2>
+        <div class="quick-actions">
+          <a href="https://leadgen.madebyrecipe.com" target="_blank" class="quick-action">
+            <div class="quick-action_icon">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <span class="quick-action_label">Launch Lead Gen</span>
+          </a>
+          <a href="https://emailbuilder.madebyrecipe.com" target="_blank" class="quick-action">
+            <div class="quick-action_icon">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <span class="quick-action_label">Launch Email Builder</span>
+          </a>
+          <a href="https://playbook.madebyrecipe.com" target="_blank" class="quick-action">
+            <div class="quick-action_icon">
+              <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <span class="quick-action_label">Launch Playbook</span>
+          </a>
+          <a href="https://scraper.madebyrecipe.com" target="_blank" class="quick-action">
+            <div class="quick-action_icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <span class="quick-action_label">Launch Scraper</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Apps Inventory -->
+      <section class="section" id="apps-inventory">
+        <h2 class="section_title">
+          <span class="section_title-number">01</span>
+          Apps Inventory & Mapping
+        </h2>
+        <div class="section_content">
+          <p>Below is a complete inventory of all Recipe Labs applications, their URLs, and current connection status.</p>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>App</th>
+                <th>URL</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Lead Gen</strong></td>
+                <td>leadgen.madebyrecipe.com</td>
+                <td><span class="status-connected">Connected</span></td>
+              </tr>
+              <tr>
+                <td><strong>Email Builder</strong></td>
+                <td>emailbuilder.madebyrecipe.com</td>
+                <td><span class="status-connected">Connected</span></td>
+              </tr>
+              <tr>
+                <td><strong>Playbook Generator</strong></td>
+                <td>playbook.madebyrecipe.com</td>
+                <td><span class="status-connected">Connected</span></td>
+              </tr>
+              <tr>
+                <td><strong>Media Scraper</strong></td>
+                <td>scraper.madebyrecipe.com</td>
+                <td><span class="status-connected">Connected</span></td>
+              </tr>
+              <tr>
+                <td><strong>Tools Bundle</strong></td>
+                <td>tools.srv1167160.hstgr.cloud</td>
+                <td><span class="status-connected">Connected</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Navigation Features -->
+      <section class="section" id="navigation">
+        <h2 class="section_title">
+          <span class="section_title-number">02</span>
+          Navigation Features
+        </h2>
+        <div class="section_content">
+          <p>All Recipe Labs applications share a unified navigation system for seamless cross-platform access.</p>
+        </div>
+
+        <div class="toggle open">
+          <div class="toggle_header" onclick="toggleSection(this)">
+            <div class="toggle_title">
+              <div class="toggle_icon">
+                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+              </div>
+              Fixed Navigation Bar
+            </div>
+            <div class="toggle_arrow">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="toggle_content">
+            <div class="toggle_inner">
+              <p><strong>Every application features a fixed top navigation bar that includes:</strong></p>
+              <ul>
+                <li><strong>Recipe Labs Logo</strong> - Links back to the main madebyrecipe.com agency site</li>
+                <li><strong>Cross-App Links</strong> - Quick access to all other platform tools</li>
+                <li><strong>Help/Support</strong> - Access to documentation and support resources</li>
+                <li><strong>User Settings</strong> - Account preferences where applicable</li>
+              </ul>
+              <p>The navigation persists while scrolling and maintains consistent styling across all applications using the Recipe Labs brand guidelines (Fresh Lemonade palette).</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="toggle">
+          <div class="toggle_header" onclick="toggleSection(this)">
+            <div class="toggle_title">
+              <div class="toggle_icon">
+                <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              </div>
+              Cross-Platform Integration
+            </div>
+            <div class="toggle_arrow">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="toggle_content">
+            <div class="toggle_inner">
+              <p>The Recipe Labs ecosystem is designed for seamless workflow integration:</p>
+              <ul>
+                <li>Generate leads in <strong>Lead Gen</strong></li>
+                <li>Create email campaigns in <strong>Email Builder</strong></li>
+                <li>Build sales playbooks in <strong>Playbook Generator</strong></li>
+                <li>Source visual assets via <strong>Media Scraper</strong></li>
+                <li>Use utility tools from <strong>Tools Bundle</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lead Gen Tool -->
+      <section class="section" id="lead-gen">
+        <h2 class="section_title">
+          <span class="section_title-number">03</span>
+          Lead Gen
+        </h2>
+
+        <div class="tool-card">
+          <div class="tool-card_header">
+            <div class="tool-card_info">
+              <div class="tool-card_icon">
+                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div>
+                <h3 class="tool-card_title">Lead Generation System</h3>
+                <span class="tool-card_url">leadgen.madebyrecipe.com</span>
+              </div>
+            </div>
+            <span class="tool-card_status">
+              <span class="tool-card_status-dot"></span>
+              Connected
+            </span>
+          </div>
+          <p class="tool-card_desc">
+            Powerful lead generation tool for building targeted prospect lists. Extract business contacts, verify emails, and export clean data for outreach campaigns.
+          </p>
+          <div class="tool-card_features">
+            <span class="tool-card_feature">Business Search</span>
+            <span class="tool-card_feature">Email Verification</span>
+            <span class="tool-card_feature">CSV Export</span>
+            <span class="tool-card_feature">Industry Filters</span>
+          </div>
+        </div>
+
+        <div class="toggle">
+          <div class="toggle_header" onclick="toggleSection(this)">
+            <div class="toggle_title">
+              <div class="toggle_icon">
+                <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </div>
+              How to Use Lead Gen
+            </div>
+            <div class="toggle_arrow">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="toggle_content">
+            <div class="toggle_inner">
+              <div class="steps">
+                <div class="step">
+                  <div class="step_number">1</div>
+                  <div class="step_content">
+                    <div class="step_title">Define Your Target Audience</div>
+                    <div class="step_desc">Use the industry filters to narrow down your search. Select location, business type, company size, and other relevant criteria.</div>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step_number">2</div>
+                  <div class="step_content">
+                    <div class="step_title">Run Search & Review Results</div>
+                    <div class="step_desc">Execute your search and review the returned prospects. Each result includes business name, contact information, and verification status.</div>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step_number">3</div>
+                  <div class="step_content">
+                    <div class="step_title">Verify & Clean Data</div>
+                    <div class="step_desc">Use the built-in email verification to ensure deliverability. Remove invalid or risky addresses before export.</div>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step_number">4</div>
+                  <div class="step_content">
+                    <div class="step_title">Export Your List</div>
+                    <div class="step_desc">Download your cleaned lead list as CSV. Ready for import into your CRM or email marketing platform.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="toggle">
+          <div class="toggle_header" onclick="toggleSection(this)">
+            <div class="toggle_title">
+              <div class="toggle_icon">
+                <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              Best Practices for Lead Gen
+            </div>
+            <div class="toggle_arrow">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="toggle_content">
+            <div class="toggle_inner">
+              <ul>
+                <li><strong>Start narrow, then expand</strong> - Begin with specific criteria and broaden if you need more leads</li>
+                <li><strong>Always verify emails</strong> - A 95%+ deliverability rate protects your sender reputation</li>
+                <li><strong>Segment by industry</strong> - Create separate lists for different verticals</li>
+                <li><strong>Regular cleanup</strong> - Re-verify lists older than 90 days before campaigns</li>
+                <li><strong>Respect opt-outs</strong> - Maintain a master suppression list</li>
+              </ul>
+
+              <div class="info-box">
+                <div class="info-box_header">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  Pro Tip
+                </div>
+                <div class="info-box_content">
+                  Combine Lead Gen with Email Builder for a complete outreach workflow. Generate leads, create personalized email campaigns, and track performance all within the Recipe Labs ecosystem.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Email Builder Tool -->
+      <section class="section" id="email-builder">
+        <h2 class="section_title">
+          <span class="section_title-number">04</span>
+          Email Builder
+        </h2>
+
+        <div class="tool-card">
+          <div class="tool-card_header">
+            <div class="tool-card_info">
+              <div class="tool-card_icon">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <h3 class="tool-card_title">Email Campaign Builder</h3>
+                <span class="tool-card_url">emailbuilder.madebyrecipe.com</span>
+              </div>
+            </div>
+            <span class="tool-card_status">
+              <span class="tool-card_status-dot"></span>
+              Connected
+            </span>
+          </div>
+          <p class="tool-card_desc">
+            Create professional email campaigns with our drag-and-drop builder. Industry-specific templates, personalization tokens, and HTML export for any ESP.
+          </p>
+          <div class="tool-card_features">
+            <span class="tool-card_feature">Drag & Drop</span>
+            <span class="tool-card_feature">Industry Templates</span>
+            <span class="tool-card_feature">Personalization</span>
+            <span class="tool-card_feature">HTML Export</span>
+          </div>
+        </div>
+
+        <div class="toggle">
+          <div class="toggle_header" onclick="toggleSection(this)">
+            <div class="toggle_title">
+              <div class="toggle_icon">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              </div>
+              Available Email Templates
+            </div>
+            <div class="toggle_arrow">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="toggle_content">
+            <div class="toggle_inner">
+              <p><strong>Industry-specific templates available:</strong></p>
+              <ul>
+                <li><strong>Law Firms</strong> - Professional legal services outreach</li>
+                <li><strong>Dental Practices</strong> - Appointment reminders, promotions</li>
+                <li><strong>Fitness Studios</strong> - Membership drives, class schedules</li>
+                <li><strong>Retail Stores</strong> - Promotions, loyalty programs</li>
+                <li><strong>Restaurants</strong> - Reservations, special events</li>
+                <li><strong>Home Services</strong> - Seasonal campaigns, maintenance reminders</li>
+                <li><strong>Professional Services</strong> - B2B outreach templates</li>
+                <li><strong>Beauty Salons</strong> - Appointment booking, specials</li>
+                <li><strong>Nonprofits</strong> - Donation appeals, newsletters</li>
+                <li><strong>Real Estate</strong> - Listings, market updates</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="toggle">
+          <div class="toggle_header" onclick="toggleSection(this)">
+            <div class="toggle_title">
+              <div class="toggle_icon">
+                <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              </div>
+              Using the Editor
+            </div>
+            <div class="toggle_arrow">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="toggle_content">
+            <div class="toggle_inner">
+              <div class="steps">
+                <div class="step">
+                  <div class="step_number">1</div>
+                  <div class="step_content">
+                    <div class="step_title">Select a Template</div>
+                    <div class="step_desc">Browse by industry or start from scratch. All templates are mobile-responsive by default.</div>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step_number">2</div>
+                  <div class="step_content">
+                    <div class="step_title">Customize Content</div>
+                    <div class="step_desc">Edit text, swap images, adjust colors. Use the drag-and-drop interface to rearrange sections.</div>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step_number">3</div>
+                  <div class="step_content">
+                    <div class="step_title">Add Personalization</div>
+                    <div class="step_desc">Insert merge tags like {{first_name}}, {{company}}, etc. These will populate from your lead list.</div>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step_number">4</div>
+                  <div class="step_content">
+                    <div class="step_title">Preview & Export</div>
+                    <div class="step_desc">Test on desktop and mobile views. Export as HTML to import into your email service provider.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="code-block">
+<!-- Personalization Tokens -->
+{{first_name}} - Recipient's first name
+{{last_name}} - Recipient's last name
+{{company}} - Company name
+{{industry}} - Industry vertical
+{{custom_1}} - Custom field 1
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Playbook Generator Tool -->
+      <section class="section" id="playbook-generator">
+        <h2 class="section_title">
+          <span class="section_title-number">05</span>
+          Playbook Generator
+        </h2>
+
+        <div class="tool-card">
+          <div class="tool-card_header">
+            <div class="tool-card_info">
+              <div class="tool-card_icon">
+                <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </div>
+              <div>
+                <h3 class="tool-card_title">Sales Playbook Generator</h3>
+                <span class="tool-card_url">playbook.madebyrecipe.com</span>
+              </div>
+            </div>
+            <span class="tool-card_status">
+              <span class="tool-card_status-dot"></span>
+              Connected
+            </span>
+          </div>
+          <p class="tool-card_desc">
+            Generate comprehensive marketing playbooks tailored to specific industries. Content strategy, social media calendars, email sequences, and sales scripts.
+          </p>
+          <div class="tool-card_features">
+            <span class="tool-card_feature">AI-Powered</span>
+            <span class="tool-card_feature">Industry-Specific</span>
+            <span class="tool-card_feature">Content Calendar</span>
+            <span class="tool-card_feature">Sales Scripts</span>
+          </div>
+        </div>
+
+        <div class="toggle">
+          <div class="toggle_header" onclick="toggleSection(this)">
+            <div class="toggle_title">
+              <div class="toggle_icon">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              What's Included in a Playbook
+            </div>
+            <div class="toggle_arrow">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="toggle_content">
+            <div class="toggle_inner">
+              <p><strong>Each generated playbook includes:</strong></p>
+              <ul>
+                <li><strong>Executive Summary</strong> - High-level strategy overview</li>
+                <li><strong>Target Audience Analysis</strong> - Detailed buyer personas</li>
+                <li><strong>Content Strategy</strong> - Blog topics, social posts, video ideas</li>
+                <li><strong>30-Day Content Calendar</strong> - Ready-to-execute posting schedule</li>
+                <li><strong>Email Sequences</strong> - Nurture campaigns and follow-up templates</li>
+                <li><strong>Social Media Templates</strong> - Platform-specific post formats</li>
+                <li><strong>Sales Scripts</strong> - Cold call and objection handling guides</li>
+                <li><strong>KPI Dashboard</strong> - Metrics to track success</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="toggle">
+          <div class="toggle_header" onclick="toggleSection(this)">
+            <div class="toggle_title">
+              <div class="toggle_icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              </div>
+              Generation Settings
+            </div>
+            <div class="toggle_arrow">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="toggle_content">
+            <div class="toggle_inner">
+              <p><strong>Configure your playbook with these inputs:</strong></p>
+              <ul>
+                <li><strong>Industry</strong> - Select from 20+ industry verticals</li>
+                <li><strong>Business Size</strong> - Startup, SMB, or Enterprise</li>
+                <li><strong>Primary Goals</strong> - Brand awareness, lead gen, sales, retention</li>
+                <li><strong>Budget Tier</strong> - Affects recommended tactics and channels</li>
+                <li><strong>Team Size</strong> - Scales execution complexity</li>
+                <li><strong>Timeline</strong> - 30, 60, or 90-day plan</li>
+              </ul>
+
+              <div class="warning-box">
+                <div class="warning-box_header">
+                  <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  Important Note
+                </div>
+                <div class="warning-box_content">
+                  Generated playbooks are starting points. Always customize content to match your client's specific brand voice, goals, and market position before delivery.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Media Scraper Tool -->
+      <section class="section" id="media-scraper">
+        <h2 class="section_title">
+          <span class="section_title-number">06</span>
+          Media Scraper
+        </h2>
+
+        <div class="tool-card">
+          <div class="tool-card_header">
+            <div class="tool-card_info">
+              <div class="tool-card_icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <div>
+                <h3 class="tool-card_title">Web Media Scraper</h3>
+                <span class="tool-card_url">scraper.madebyrecipe.com</span>
+              </div>
+            </div>
+            <span class="tool-card_status">
+              <span class="tool-card_status-dot"></span>
+              Connected
+            </span>
+          </div>
+          <p class="tool-card_desc">
+            Extract images and media files from any webpage. Filter by size, select specific assets, and batch download for your design projects.
+          </p>
+          <div class="tool-card_features">
+            <span class="tool-card_feature">Any URL</span>
+            <span class="tool-card_feature">Size Filters</span>
+            <span class="tool-card_feature">Batch Select</span>
+            <span class="tool-card_feature">ZIP Download</span>
+          </div>
+        </div>
+
+        <div class="toggle">
+          <div class="toggle_header" onclick="toggleSection(this)">
+            <div class="toggle_title">
+              <div class="toggle_icon">
+                <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              </div>
+              How to Use the Scraper
+            </div>
+            <div class="toggle_arrow">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="toggle_content">
+            <div class="toggle_inner">
+              <div class="steps">
+                <div class="step">
+                  <div class="step_number">1</div>
+                  <div class="step_content">
+                    <div class="step_title">Enter Target URL</div>
+                    <div class="step_desc">Paste the full URL of the webpage you want to scrape. The tool will analyze all media on the page.</div>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step_number">2</div>
+                  <div class="step_content">
+                    <div class="step_title">Apply Filters</div>
+                    <div class="step_desc">Filter by minimum image dimensions, file type (JPG, PNG, SVG, etc.), or exclude certain patterns.</div>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step_number">3</div>
+                  <div class="step_content">
+                    <div class="step_title">Select Assets</div>
+                    <div class="step_desc">Browse the results grid. Click to select individual images or use "Select All" for batch operations.</div>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step_number">4</div>
+                  <div class="step_content">
+                    <div class="step_title">Download</div>
+                    <div class="step_desc">Download individual files or get all selected assets as a ZIP archive.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-box">
+                <div class="info-box_header">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  Ethical Use Reminder
+                </div>
+                <div class="info-box_content">
+                  This tool is for sourcing inspiration, reference materials, and public assets. Always respect copyright, licensing, and terms of service. For client work, use properly licensed stock imagery or original content.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tools Bundle -->
+      <section class="section" id="tools-bundle">
+        <h2 class="section_title">
+          <span class="section_title-number">07</span>
+          Tools Bundle
+        </h2>
+
+        <div class="tool-card">
+          <div class="tool-card_header">
+            <div class="tool-card_info">
+              <div class="tool-card_icon">
+                <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              </div>
+              <div>
+                <h3 class="tool-card_title">Automation Tools Bundle</h3>
+                <span class="tool-card_url">tools.srv1167160.hstgr.cloud</span>
+              </div>
+            </div>
+            <span class="tool-card_status">
+              <span class="tool-card_status-dot"></span>
+              Connected
+            </span>
+          </div>
+          <p class="tool-card_desc">
+            Collection of utility tools including email validation, social media asset resizing, metadata stripping, and document conversion.
+          </p>
+          <div class="tool-card_features">
+            <span class="tool-card_feature">Email Validator</span>
+            <span class="tool-card_feature">Social Resizer</span>
+            <span class="tool-card_feature">Metadata Stripper</span>
+            <span class="tool-card_feature">Doc to HTML</span>
+          </div>
+        </div>
+
+        <div class="toggle">
+          <div class="toggle_header" onclick="toggleSection(this)">
+            <div class="toggle_title">
+              <div class="toggle_icon">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              Email Validator
+            </div>
+            <div class="toggle_arrow">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="toggle_content">
+            <div class="toggle_inner">
+              <p><strong>Batch verify email lists before sending campaigns.</strong></p>
+              <ul>
+                <li>Syntax validation - Check for properly formatted addresses</li>
+                <li>MX record lookup - Verify domain accepts mail</li>
+                <li>Disposable domain detection - Flag temporary email services</li>
+                <li>Risk scoring - Rate deliverability likelihood</li>
+                <li>CSV upload/export - Handle bulk lists easily</li>
+              </ul>
+              <p>Processing speed: ~1,000 emails per minute</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="toggle">
+          <div class="toggle_header" onclick="toggleSection(this)">
+            <div class="toggle_title">
+              <div class="toggle_icon">
+                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              </div>
+              Social Asset Resizer
+            </div>
+            <div class="toggle_arrow">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="toggle_content">
+            <div class="toggle_inner">
+              <p><strong>One image → all social media sizes.</strong></p>
+              <p>Supported platforms and dimensions:</p>
+              <ul>
+                <li><strong>Instagram</strong> - Feed (1080x1080), Story (1080x1920), Reel Cover</li>
+                <li><strong>Facebook</strong> - Post (1200x630), Cover (820x312), Story</li>
+                <li><strong>Twitter/X</strong> - Post (1200x675), Header (1500x500)</li>
+                <li><strong>LinkedIn</strong> - Post (1200x627), Banner (1128x191)</li>
+                <li><strong>YouTube</strong> - Thumbnail (1280x720), Banner (2560x1440)</li>
+                <li><strong>TikTok</strong> - Cover (1080x1920)</li>
+                <li><strong>Pinterest</strong> - Pin (1000x1500)</li>
+              </ul>
+              <p>Export as individual files or bundled ZIP.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="toggle">
+          <div class="toggle_header" onclick="toggleSection(this)">
+            <div class="toggle_title">
+              <div class="toggle_icon">
+                <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </div>
+              Metadata Stripper
+            </div>
+            <div class="toggle_arrow">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="toggle_content">
+            <div class="toggle_inner">
+              <p><strong>Remove hidden data from images for privacy and file optimization.</strong></p>
+              <ul>
+                <li><strong>GPS data removal</strong> - Strip location coordinates</li>
+                <li><strong>Device info</strong> - Remove camera/phone identifiers</li>
+                <li><strong>EXIF data</strong> - Clear all embedded metadata</li>
+                <li><strong>File optimization</strong> - Reduce file size by 20-40%</li>
+                <li><strong>Batch processing</strong> - Handle multiple files at once</li>
+              </ul>
+
+              <div class="warning-box">
+                <div class="warning-box_header">
+                  <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  Privacy Reminder
+                </div>
+                <div class="warning-box_content">
+                  Always strip metadata from images before sharing publicly or with clients. Location data and device information can pose security risks.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="toggle">
+          <div class="toggle_header" onclick="toggleSection(this)">
+            <div class="toggle_title">
+              <div class="toggle_icon">
+                <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              Doc to HTML Converter
+            </div>
+            <div class="toggle_arrow">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="toggle_content">
+            <div class="toggle_inner">
+              <p><strong>Convert documents to clean, email-ready HTML.</strong></p>
+              <ul>
+                <li>Support for DOCX, RTF, and TXT formats</li>
+                <li>Clean HTML output (no Word cruft)</li>
+                <li>Preserves basic formatting (bold, italic, lists)</li>
+                <li>Email-client compatible code</li>
+                <li>Copy-paste ready output</li>
+              </ul>
+              <p>Perfect for converting client-provided content into email templates.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Workflows -->
+      <section class="section" id="workflows">
+        <h2 class="section_title">
+          <span class="section_title-number">08</span>
+          Recommended Workflows
+        </h2>
+
+        <div class="toggle open">
+          <div class="toggle_header" onclick="toggleSection(this)">
+            <div class="toggle_title">
+              <div class="toggle_icon">
+                <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              Complete Outreach Campaign Workflow
+            </div>
+            <div class="toggle_arrow">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="toggle_content">
+            <div class="toggle_inner">
+              <p><strong>End-to-end campaign setup using the Recipe Labs ecosystem:</strong></p>
+              <div class="steps">
+                <div class="step">
+                  <div class="step_number">1</div>
+                  <div class="step_content">
+                    <div class="step_title">Generate Playbook (Playbook Generator)</div>
+                    <div class="step_desc">Create industry-specific strategy including email sequences and content calendar.</div>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step_number">2</div>
+                  <div class="step_content">
+                    <div class="step_title">Build Lead List (Lead Gen)</div>
+                    <div class="step_desc">Search for prospects matching your target criteria. Export verified contacts.</div>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step_number">3</div>
+                  <div class="step_content">
+                    <div class="step_title">Validate Emails (Tools Bundle)</div>
+                    <div class="step_desc">Run your list through Email Validator for maximum deliverability.</div>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step_number">4</div>
+                  <div class="step_content">
+                    <div class="step_title">Create Email Campaign (Email Builder)</div>
+                    <div class="step_desc">Build your email using industry templates. Add personalization tokens.</div>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step_number">5</div>
+                  <div class="step_content">
+                    <div class="step_title">Source Visual Assets (Media Scraper)</div>
+                    <div class="step_desc">Gather reference imagery and inspiration for campaign visuals.</div>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step_number">6</div>
+                  <div class="step_content">
+                    <div class="step_title">Prepare Images (Tools Bundle)</div>
+                    <div class="step_desc">Resize for all platforms and strip metadata before publishing.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Best Practices -->
+      <section class="section" id="best-practices">
+        <h2 class="section_title">
+          <span class="section_title-number">09</span>
+          Best Practices
+        </h2>
+
+        <div class="toggle">
+          <div class="toggle_header" onclick="toggleSection(this)">
+            <div class="toggle_title">
+              <div class="toggle_icon">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              Data Security Guidelines
+            </div>
+            <div class="toggle_arrow">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="toggle_content">
+            <div class="toggle_inner">
+              <ul>
+                <li>Never share login credentials for Recipe Labs tools</li>
+                <li>Don't store client lead lists on unsecured devices</li>
+                <li>Always strip metadata from images before delivery</li>
+                <li>Use encrypted connections when accessing tools remotely</li>
+                <li>Log out of shared workstations after each session</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="toggle">
+          <div class="toggle_header" onclick="toggleSection(this)">
+            <div class="toggle_title">
+              <div class="toggle_icon">
+                <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </div>
+              Performance Optimization
+            </div>
+            <div class="toggle_arrow">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="toggle_content">
+            <div class="toggle_inner">
+              <ul>
+                <li>Process lead lists in batches of 1,000 for optimal speed</li>
+                <li>Compress images before uploading to resizer (faster processing)</li>
+                <li>Export playbooks as PDF for client delivery (faster than live generation)</li>
+                <li>Use Chrome or Firefox for best tool compatibility</li>
+                <li>Clear browser cache monthly for optimal performance</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Troubleshooting -->
+      <section class="section" id="troubleshooting">
+        <h2 class="section_title">
+          <span class="section_title-number">10</span>
+          Troubleshooting
+        </h2>
+
+        <div class="toggle">
+          <div class="toggle_header" onclick="toggleSection(this)">
+            <div class="toggle_title">
+              <div class="toggle_icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              Common Issues & Solutions
+            </div>
+            <div class="toggle_arrow">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="toggle_content">
+            <div class="toggle_inner">
+              <p><strong>Tool not loading?</strong></p>
+              <ul>
+                <li>Clear browser cache and cookies</li>
+                <li>Try incognito/private browsing mode</li>
+                <li>Disable browser extensions temporarily</li>
+                <li>Check internet connection stability</li>
+              </ul>
+
+              <p><strong>Export not working?</strong></p>
+              <ul>
+                <li>Ensure pop-up blocker is disabled for our domains</li>
+                <li>Check available disk space</li>
+                <li>Try a different browser</li>
+                <li>Reduce batch size if processing large files</li>
+              </ul>
+
+              <p><strong>Email validation timing out?</strong></p>
+              <ul>
+                <li>Split large lists into smaller batches</li>
+                <li>Wait a few minutes and retry</li>
+                <li>Some domains may have rate limiting - normal behavior</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="toggle">
+          <div class="toggle_header" onclick="toggleSection(this)">
+            <div class="toggle_title">
+              <div class="toggle_icon">
+                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              Getting Support
+            </div>
+            <div class="toggle_arrow">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="toggle_content">
+            <div class="toggle_inner">
+              <p>For technical issues or questions not covered in this guide:</p>
+              <ul>
+                <li><strong>Email:</strong> support@madebyrecipe.com</li>
+                <li><strong>Response time:</strong> Within 24 business hours</li>
+                <li><strong>Include:</strong> Tool name, browser version, screenshot of error</li>
+              </ul>
+              <p>For urgent production issues, contact the team lead directly via Slack.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="guide-footer">
+        <div class="guide-footer_info">
+          Last updated: December 2025 | Recipe Labs Internal Documentation
+        </div>
+        <div class="guide-footer_version">
+          v2.0.0
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Toggle functionality
+    function toggleSection(header) {
+      const toggle = header.parentElement;
+      toggle.classList.toggle('open');
+    }
+
+    // Sidebar active state
+    const sidebarLinks = document.querySelectorAll('.sidebar_link');
+    const sections = document.querySelectorAll('.section');
+
+    function updateActiveLink() {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (scrollY >= sectionTop - 150) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      sidebarLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+
+    // Smooth scroll for sidebar links
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Mobile navigation toggle
+    const mobileNavToggle = document.getElementById('mobileNavToggle');
+    if (mobileNavToggle) {
+      mobileNavToggle.addEventListener('click', () => {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.toggle('mobile-visible');
+      });
+    }
+  </script>
+</body>
+</html>

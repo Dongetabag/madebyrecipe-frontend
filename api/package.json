@@ -1,0 +1,27 @@
+{
+  "name": "recipe-labs-talent-funnel-api",
+  "version": "1.0.0",
+  "description": "Backend API for Recipe Labs Talent Funnel",
+  "main": "talent-server.js",
+  "scripts": {
+    "start": "node talent-server.js",
+    "dev": "nodemon talent-server.js"
+  },
+  "keywords": [
+    "talent",
+    "funnel",
+    "api",
+    "recipe-labs"
+  ],
+  "author": "Recipe Labs",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.7",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
+

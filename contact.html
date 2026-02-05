@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Primary Meta Tags -->
+  <title>Contact Us | Recipe Labs - New England Creative Agency</title>
+  <meta name="title" content="Contact Us | Recipe Labs - New England Creative Agency">
+  <meta name="description" content="Contact Recipe Labs serving New England. Book a discovery call or reach out via email for enterprise-level solutions.">
+  <meta name="keywords" content="contact Recipe Labs, New England agency, book a call, discovery call, enterprise solutions">
+  <meta name="author" content="Recipe Labs LLC">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://madebyrecipe.com/contact">
+  <meta property="og:title" content="Contact Us | Recipe Labs">
+  <meta property="og:description" content="Ready to stop competing and start dominating? Let's talk.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Calendly -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23F5D547'/><stop offset='50%25' stop-color='%23D4B83A'/><stop offset='100%25' stop-color='%234A7C4E'/></linearGradient></defs><rect fill='url(%23g)' rx='16' width='100' height='100'/><path d='M30 25h25c11 0 20 9 20 20s-9 20-20 20h-5l20 10H50L30 65V25zm10 10v20h15c5.5 0 10-4.5 10-10s-4.5-10-10-10H40z' fill='white'/></svg>">
+
+  <style>
+    /* ========================================
+       RECIPE LABS - CONTACT PAGE
+       Fresh Lemonade Palette - PROMETHEUS v7.0
+    ======================================== */
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-bg: #0f1410;
+      --color-bg-secondary: #141a16;
+      --color-bg-tertiary: #1a211c;
+      --color-text: #ffffff;
+      --color-text-muted: #a8b4a4;
+      --color-text-dim: #5a685a;
+
+      --color-lemon: #F5D547;
+      --color-lemon-light: #F7E07A;
+      --color-lemon-dark: #D4B83A;
+      --color-forest: #4A7C4E;
+      --color-mint: #9AA590;
+      --color-sage: #6B8E6B;
+
+      --color-accent: #F5D547;
+      --color-accent-glow: rgba(245, 213, 71, 0.4);
+      --gradient-brand: linear-gradient(135deg, #F5D547 0%, #D4B83A 50%, #4A7C4E 100%);
+      --gradient-spectrum: linear-gradient(90deg, #F5D547, #D4B83A, #4A7C4E, #6B8E6B, #0f1410);
+
+      --color-border: #1f2a1f;
+      --color-border-light: #2d3a2d;
+
+      --font-display: 'Orbitron', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+      --font-tech: 'Rajdhani', sans-serif;
+
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      line-height: 1.1;
+    }
+
+    /* Tech Overlay */
+    .tech-overlay {
+      pointer-events: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 9998;
+    }
+
+    .scanlines {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.03) 2px, rgba(0, 0, 0, 0.03) 4px);
+      opacity: 0.5;
+    }
+
+    .tech-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(245, 213, 71, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(245, 213, 71, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      opacity: 0.3;
+    }
+
+    .brand-spectrum {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gradient-spectrum);
+      z-index: 9999;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.5rem 2rem;
+      background: rgba(13, 15, 12, 0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .navbar_component {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar_logo {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      letter-spacing: 0.1em;
+    }
+
+    .logo-mark {
+      width: 40px; height: 40px;
+      background: var(--gradient-brand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      border-radius: 10px;
+      transition: var(--transition-spring);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-mark::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+    }
+
+    .navbar_logo:hover .logo-mark {
+      transform: rotate(-5deg) scale(1.1);
+      box-shadow: 0 0 30px var(--color-accent-glow);
+    }
+
+    .logo-text {
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .logo-text-lab {
+      font-family: var(--font-tech);
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.2em;
+      margin-left: -0.5rem;
+    }
+
+    .navbar_links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .navbar_link {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      transition: var(--transition);
+      position: relative;
+      padding: 0.25rem 0;
+    }
+
+    .navbar_link:hover, .navbar_link.active {
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .navbar_link::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 2px;
+      background: var(--gradient-brand);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s var(--ease-out-expo);
+    }
+
+    .navbar_link:hover::before, .navbar_link.active::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .btn-primary {
+      background: var(--gradient-brand);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      font-family: var(--font-body);
+      transition: var(--transition-spring);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 40px var(--color-accent-glow);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 2px;
+      background: var(--gradient-brand);
+      transition: var(--transition);
+    }
+
+    /* Page Hero */
+    .page-hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero_bg {
+      position: absolute;
+      font-family: var(--font-display);
+      font-size: clamp(15rem, 40vw, 30rem);
+      font-weight: 900;
+      color: var(--color-border);
+      opacity: 0.3;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .page-hero_orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.3;
+    }
+
+    .page-hero_orb--1 {
+      width: 500px; height: 500px;
+      background: var(--color-lemon);
+      top: -150px; right: -150px;
+    }
+
+    .page-hero_orb--2 {
+      width: 350px; height: 350px;
+      background: var(--color-forest);
+      bottom: -100px; left: -100px;
+    }
+
+    .page-hero_content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 900px;
+    }
+
+    .page-hero_label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .page-hero_label-dot {
+      width: 8px; height: 8px;
+      background: var(--gradient-brand);
+      border-radius: 50%;
+      box-shadow: 0 0 20px var(--color-accent-glow);
+    }
+
+    .page-hero_label-text {
+      font-family: var(--font-tech);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-text-muted);
+    }
+
+    .page-hero_title {
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .page-hero_title-accent {
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-hero_desc {
+      font-size: 1.125rem;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 6rem 2rem;
+    }
+
+    .contact_grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact_info {
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      padding: 3rem;
+    }
+
+    .contact_info h2 {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .contact_info > p {
+      font-size: 1.0625rem;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .contact_details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact_item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .contact_item-label {
+      font-family: var(--font-tech);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-text-dim);
+    }
+
+    .contact_item-value {
+      font-size: 1.0625rem;
+      color: var(--color-text);
+    }
+
+    .contact_item-value a {
+      transition: var(--transition);
+    }
+
+    .contact_item-value a:hover {
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .contact_cta-btn {
+      display: inline-block;
+      background: var(--gradient-brand);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: var(--transition-spring);
+    }
+
+    .contact_cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 50px var(--color-accent-glow);
+    }
+
+    /* Contact Form */
+    .contact_form {
+      background: var(--color-bg-tertiary);
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      padding: 3rem;
+    }
+
+    .form_group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form_label {
+      display: block;
+      font-family: var(--font-tech);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .form_input,
+    .form_textarea {
+      width: 100%;
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--color-text);
+      transition: var(--transition);
+    }
+
+    .form_input:focus,
+    .form_textarea:focus {
+      outline: none;
+      border-color: var(--color-lemon);
+      box-shadow: 0 0 0 3px var(--color-accent-glow);
+    }
+
+    .form_input::placeholder,
+    .form_textarea::placeholder {
+      color: var(--color-text-dim);
+    }
+
+    .form_textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .form_submit {
+      width: 100%;
+      background: var(--gradient-brand);
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition-spring);
+    }
+
+    .form_submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 50px var(--color-accent-glow);
+    }
+
+    /* Calendly Section */
+    .calendly-section {
+      padding: 6rem 2rem;
+      background: var(--color-bg-secondary);
+    }
+
+    .calendly_container {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .calendly_container h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .calendly_container > p {
+      font-size: 1.0625rem;
+      color: var(--color-text-muted);
+      margin-bottom: 3rem;
+    }
+
+    .calendly-inline-widget {
+      min-height: 700px;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--color-bg);
+      padding: 6rem 2rem 2rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .footer_grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr repeat(3, 1fr);
+      gap: 4rem;
+    }
+
+    .footer_brand p {
+      color: var(--color-text-muted);
+      margin-top: 1rem;
+      font-size: 0.875rem;
+      line-height: 1.7;
+    }
+
+    .footer_tagline {
+      font-family: var(--font-tech);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-top: 0.5rem;
+    }
+
+    .footer_title {
+      font-family: var(--font-tech);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer_links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer_link {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      transition: var(--transition);
+    }
+
+    .footer_link:hover {
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transform: translateX(4px);
+    }
+
+    .footer_bottom {
+      max-width: 1400px;
+      margin: 4rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer_copyright {
+      font-family: var(--font-tech);
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+    }
+
+    .footer_social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social_link {
+      width: 40px; height: 40px;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      transition: var(--transition-spring);
+    }
+
+    .social_link:hover {
+      border-color: transparent;
+      background: var(--gradient-brand);
+      transform: translateY(-4px);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .contact_grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .footer_grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar_links { display: none; }
+      .hamburger { display: flex; }
+
+      .page-hero {
+        padding: 8rem 1.5rem 3rem;
+        min-height: 50vh;
+      }
+
+      .contact_info,
+      .contact_form {
+        padding: 2rem;
+      }
+
+      .footer_grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer_bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Tech Overlay -->
+  <div class="tech-overlay" aria-hidden="true">
+    <div class="scanlines"></div>
+    <div class="tech-grid"></div>
+  </div>
+
+  <!-- Brand Spectrum Bar -->
+  <div class="brand-spectrum" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar_component">
+      <a href="index.html" class="navbar_logo">
+        <span class="logo-mark">R</span>
+        <span class="logo-text">RCPE</span>
+        <span class="logo-text-lab">LAB</span>
+      </a>
+
+      <div class="navbar_links">
+        <a href="index.html" class="navbar_link">Home</a>
+        <a href="services.html" class="navbar_link">Services</a>
+        <a href="portfolio.html" class="navbar_link">Work</a>
+        <a href="about.html" class="navbar_link">About</a>
+        <a href="blog.html" class="navbar_link">Blog</a>
+        <a href="contact.html" class="navbar_link active">Contact</a>
+        <a href="talent.html" class="navbar_link">Join Us</a>
+        <a href="https://calendly.com/contact-madebyrecipe/30min" target="_blank" class="btn-primary">Book a Call</a>
+      </div>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero_bg">SAY</div>
+    <div class="page-hero_orb page-hero_orb--1"></div>
+    <div class="page-hero_orb page-hero_orb--2"></div>
+
+    <div class="page-hero_content">
+      <div class="page-hero_label">
+        <span class="page-hero_label-dot"></span>
+        <span class="page-hero_label-text">Get In Touch</span>
+      </div>
+      <h1 class="page-hero_title">Let's <span class="page-hero_title-accent">Talk</span></h1>
+      <p class="page-hero_desc">
+        Ready to stop competing and start dominating? Book a discovery call or drop us a line.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="contact_grid">
+      <div class="contact_info">
+        <h2>Start the<br />Conversation.</h2>
+        <p>
+          Every engagement begins with a 30-minute discovery call. No pitch, no pressure—just a strategic conversation about where you are and where you want to be.
+        </p>
+        <div class="contact_details">
+          <div class="contact_item">
+            <span class="contact_item-label">Email</span>
+            <span class="contact_item-value">
+              <a href="mailto:contact@madebyrecipe.com">contact@madebyrecipe.com</a>
+            </span>
+          </div>
+          <div class="contact_item">
+            <span class="contact_item-label">Location</span>
+            <span class="contact_item-value">Serving New England</span>
+          </div>
+          <div class="contact_item">
+            <span class="contact_item-label">Book a Call</span>
+            <span class="contact_item-value">
+              <a href="https://calendly.com/contact-madebyrecipe/30min" target="_blank">calendly.com/contact-madebyrecipe</a>
+            </span>
+          </div>
+        </div>
+        <a href="https://calendly.com/contact-madebyrecipe/30min" target="_blank" class="contact_cta-btn">Schedule Discovery Call</a>
+      </div>
+
+      <form class="contact_form" id="contactForm" onsubmit="handleFormSubmit(event)">
+        <div class="form_group">
+          <label class="form_label">Name</label>
+          <input type="text" class="form_input" placeholder="Your name" required>
+        </div>
+        <div class="form_group">
+          <label class="form_label">Email</label>
+          <input type="email" class="form_input" placeholder="your@email.com" required>
+        </div>
+        <div class="form_group">
+          <label class="form_label">Company</label>
+          <input type="text" class="form_input" placeholder="Your company">
+        </div>
+        <div class="form_group">
+          <label class="form_label">Message</label>
+          <textarea class="form_textarea" placeholder="Tell us about your project..." required></textarea>
+        </div>
+        <button type="submit" class="form_submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Calendly Section -->
+  <section class="calendly-section">
+    <div class="calendly_container">
+      <h2>Or Book Directly</h2>
+      <p>Choose a time that works for you. We'll discuss your goals and how Recipe Labs can help.</p>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/contact-madebyrecipe/30min"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer_grid">
+      <div class="footer_brand">
+        <a href="index.html" class="navbar_logo">
+          <span class="logo-mark">R</span>
+          <span class="logo-text">RCPE</span>
+          <span class="logo-text-lab">LAB</span>
+        </a>
+        <p>A creative agency engineering growth for brands ready to dominate. Serving New England.</p>
+        <div class="footer_tagline">Made By Recipe</div>
+      </div>
+
+      <div>
+        <h4 class="footer_title">Navigation</h4>
+        <div class="footer_links">
+          <a href="index.html" class="footer_link">Home</a>
+          <a href="services.html" class="footer_link">Services</a>
+          <a href="portfolio.html" class="footer_link">Work</a>
+          <a href="about.html" class="footer_link">About</a>
+          <a href="contact.html" class="footer_link">Contact</a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer_title">Services</h4>
+        <div class="footer_links">
+          <a href="services.html" class="footer_link">Social Media</a>
+          <a href="services.html" class="footer_link">Brand Design</a>
+          <a href="services.html" class="footer_link">Pitching</a>
+          <a href="services.html" class="footer_link">Events</a>
+          <a href="services.html" class="footer_link">SEO</a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer_title">Contact</h4>
+        <div class="footer_links">
+          <a href="mailto:contact@madebyrecipe.com" class="footer_link">contact@madebyrecipe.com</a>
+          <span class="footer_link">New England</span>
+          <a href="https://calendly.com/contact-madebyrecipe/30min" target="_blank" class="footer_link">Book a Call</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer_bottom">
+      <div>
+        <span class="footer_copyright">THE RECIPE LAB 2025 - All Rights Reserved</span>
+        <div class="footer_tagline">Corporate Identity</div>
+      </div>
+      <div class="footer_social">
+        <a href="https://linkedin.com" target="_blank" class="social_link" aria-label="LinkedIn">Li</a>
+        <a href="https://www.instagram.com/madebyrecipe?igsh=cXBzb3d2bTlienZv" target="_blank" class="social_link" aria-label="Instagram">Ig</a>
+        <a href="https://x.com" target="_blank" class="social_link" aria-label="X/Twitter">X</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <script>
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      alert('Thank you! We\'ll get back to you within 24 hours. Or book a call directly using the calendar below.');
+    }
+
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.navbar_links');
+    if (hamburger) {
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    }
+  </script>
+</body>
+</html>

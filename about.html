@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Primary Meta Tags -->
+  <title>About Us | Recipe Labs - New England Creative Agency</title>
+  <meta name="title" content="About Us | Recipe Labs - New England Creative Agency">
+  <meta name="description" content="Meet the Recipe Labs team: Lance Simeon Reid, Ahmed Jibril, and Aaron Ellis. Three founders building enterprise growth systems across New England.">
+  <meta name="keywords" content="Recipe Labs team, New England agency, Lance Simeon Reid, Ahmed Jibril, Aaron Ellis, creative agency founders, enterprise solutions">
+  <meta name="author" content="Recipe Labs LLC">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://madebyrecipe.com/about">
+  <meta property="og:title" content="About Us | Recipe Labs">
+  <meta property="og:description" content="Three founders. One mission: build growth systems that actually work.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23F5D547'/><stop offset='50%25' stop-color='%23D4B83A'/><stop offset='100%25' stop-color='%234A7C4E'/></linearGradient></defs><rect fill='url(%23g)' rx='16' width='100' height='100'/><path d='M30 25h25c11 0 20 9 20 20s-9 20-20 20h-5l20 10H50L30 65V25zm10 10v20h15c5.5 0 10-4.5 10-10s-4.5-10-10-10H40z' fill='white'/></svg>">
+
+  <style>
+    /* ========================================
+       RECIPE LABS - ABOUT PAGE
+       Fresh Lemonade Palette - PROMETHEUS v7.0
+    ======================================== */
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-bg: #0f1410;
+      --color-bg-secondary: #141a16;
+      --color-bg-tertiary: #1a211c;
+      --color-text: #ffffff;
+      --color-text-muted: #a8b4a4;
+      --color-text-dim: #5a685a;
+
+      --color-lemon: #F5D547;
+      --color-lemon-light: #F7E07A;
+      --color-lemon-dark: #D4B83A;
+      --color-forest: #4A7C4E;
+      --color-mint: #9AA590;
+      --color-sage: #6B8E6B;
+
+      --color-accent: #F5D547;
+      --color-accent-glow: rgba(245, 213, 71, 0.4);
+      --gradient-brand: linear-gradient(135deg, #F5D547 0%, #D4B83A 50%, #4A7C4E 100%);
+      --gradient-spectrum: linear-gradient(90deg, #F5D547, #D4B83A, #4A7C4E, #6B8E6B, #0f1410);
+
+      --color-border: #1f2a1f;
+      --color-border-light: #2d3a2d;
+
+      --font-display: 'Orbitron', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+      --font-tech: 'Rajdhani', sans-serif;
+
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      line-height: 1.1;
+    }
+
+    /* Tech Overlay */
+    .tech-overlay {
+      pointer-events: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 9998;
+    }
+
+    .scanlines {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.03) 2px, rgba(0, 0, 0, 0.03) 4px);
+      opacity: 0.5;
+    }
+
+    .tech-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(245, 213, 71, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(245, 213, 71, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      opacity: 0.3;
+    }
+
+    .brand-spectrum {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gradient-spectrum);
+      z-index: 9999;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.5rem 2rem;
+      background: rgba(13, 15, 12, 0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .navbar_component {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar_logo {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      letter-spacing: 0.1em;
+    }
+
+    .logo-mark {
+      width: 40px; height: 40px;
+      background: var(--gradient-brand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      border-radius: 10px;
+      transition: var(--transition-spring);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-mark::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+    }
+
+    .navbar_logo:hover .logo-mark {
+      transform: rotate(-5deg) scale(1.1);
+      box-shadow: 0 0 30px var(--color-accent-glow);
+    }
+
+    .logo-text {
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .logo-text-lab {
+      font-family: var(--font-tech);
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.2em;
+      margin-left: -0.5rem;
+    }
+
+    .navbar_links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .navbar_link {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      transition: var(--transition);
+      position: relative;
+      padding: 0.25rem 0;
+    }
+
+    .navbar_link:hover, .navbar_link.active {
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .navbar_link::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 2px;
+      background: var(--gradient-brand);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s var(--ease-out-expo);
+    }
+
+    .navbar_link:hover::before, .navbar_link.active::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .btn-primary {
+      background: var(--gradient-brand);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      font-family: var(--font-body);
+      transition: var(--transition-spring);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 40px var(--color-accent-glow);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 2px;
+      background: var(--gradient-brand);
+      transition: var(--transition);
+    }
+
+    /* Page Hero */
+    .page-hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero_bg {
+      position: absolute;
+      font-family: var(--font-display);
+      font-size: clamp(15rem, 40vw, 30rem);
+      font-weight: 900;
+      color: var(--color-border);
+      opacity: 0.3;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .page-hero_orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.3;
+    }
+
+    .page-hero_orb--1 {
+      width: 500px; height: 500px;
+      background: var(--color-lemon);
+      top: -150px; right: -150px;
+    }
+
+    .page-hero_orb--2 {
+      width: 350px; height: 350px;
+      background: var(--color-forest);
+      bottom: -100px; left: -100px;
+    }
+
+    .page-hero_content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 900px;
+    }
+
+    .page-hero_label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .page-hero_label-dot {
+      width: 8px; height: 8px;
+      background: var(--gradient-brand);
+      border-radius: 50%;
+      box-shadow: 0 0 20px var(--color-accent-glow);
+    }
+
+    .page-hero_label-text {
+      font-family: var(--font-tech);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-text-muted);
+    }
+
+    .page-hero_title {
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .page-hero_title-accent {
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-hero_desc {
+      font-size: 1.125rem;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 6rem 2rem;
+    }
+
+    .about_grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about_visual {
+      aspect-ratio: 1;
+      background: var(--gradient-brand);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about_visual-text {
+      font-family: var(--font-display);
+      font-size: 8rem;
+      font-weight: 700;
+      color: white;
+      opacity: 0.9;
+    }
+
+    .about_visual-label {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      font-family: var(--font-tech);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: white;
+      opacity: 0.8;
+    }
+
+    .about_content h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      margin-bottom: 2rem;
+      letter-spacing: 0.02em;
+    }
+
+    .about_content p {
+      font-size: 1.0625rem;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .about_stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .about_stat {
+      text-align: left;
+    }
+
+    .about_stat-number {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .about_stat-label {
+      font-family: var(--font-tech);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-muted);
+      margin-top: 0.25rem;
+    }
+
+    /* Team Section */
+    .team-section {
+      padding: 6rem 2rem;
+      background: var(--color-bg-secondary);
+    }
+
+    .section_header {
+      max-width: 1200px;
+      margin: 0 auto 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .section_label {
+      font-family: var(--font-tech);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .section_title {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .section_title-accent {
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section_desc {
+      font-size: 1.0625rem;
+      color: var(--color-text-muted);
+      max-width: 400px;
+    }
+
+    .team_grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .team_card {
+      background: var(--color-bg-tertiary);
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team_card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: var(--gradient-brand);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .team_card:hover {
+      transform: translateY(-8px);
+      border-color: var(--color-forest);
+    }
+
+    .team_card:hover::before {
+      opacity: 1;
+    }
+
+    .team_avatar {
+      width: 80px; height: 80px;
+      background: var(--gradient-brand);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1.5rem;
+    }
+
+    .team_name {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .team_role {
+      font-family: var(--font-tech);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+    }
+
+    .team_bio {
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .team_achievements {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .team_achievement {
+      font-size: 0.8125rem;
+      color: var(--color-text-dim);
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .team_achievement::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px; height: 6px;
+      background: var(--gradient-brand);
+      border-radius: 50%;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 8rem 2rem;
+      background: var(--color-bg);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 400px;
+      background: radial-gradient(ellipse, var(--color-accent-glow) 0%, transparent 70%);
+      opacity: 0.3;
+    }
+
+    .cta_content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta_urgency {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-tech);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-lemon);
+      margin-bottom: 1.5rem;
+    }
+
+    .cta_urgency-dot {
+      width: 8px; height: 8px;
+      background: var(--color-lemon);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+
+    .cta_title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta_desc {
+      font-size: 1.125rem;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .cta_proof {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .cta_proof-item { text-align: center; }
+
+    .cta_proof-number {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cta_proof-label {
+      font-family: var(--font-tech);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .cta_btn {
+      display: inline-block;
+      background: var(--gradient-brand);
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: var(--transition-spring);
+    }
+
+    .cta_btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 50px var(--color-accent-glow);
+    }
+
+    .cta_guarantee {
+      font-size: 0.875rem;
+      color: var(--color-text-dim);
+      margin-top: 1.5rem;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--color-bg);
+      padding: 6rem 2rem 2rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .footer_grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr repeat(3, 1fr);
+      gap: 4rem;
+    }
+
+    .footer_brand p {
+      color: var(--color-text-muted);
+      margin-top: 1rem;
+      font-size: 0.875rem;
+      line-height: 1.7;
+    }
+
+    .footer_tagline {
+      font-family: var(--font-tech);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-top: 0.5rem;
+    }
+
+    .footer_title {
+      font-family: var(--font-tech);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer_links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer_link {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      transition: var(--transition);
+    }
+
+    .footer_link:hover {
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transform: translateX(4px);
+    }
+
+    .footer_bottom {
+      max-width: 1400px;
+      margin: 4rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer_copyright {
+      font-family: var(--font-tech);
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+    }
+
+    .footer_social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social_link {
+      width: 40px; height: 40px;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      transition: var(--transition-spring);
+    }
+
+    .social_link:hover {
+      border-color: transparent;
+      background: var(--gradient-brand);
+      transform: translateY(-4px);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .about_grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .about_visual {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .footer_grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar_links { display: none; }
+      .hamburger { display: flex; }
+
+      .page-hero {
+        padding: 8rem 1.5rem 3rem;
+        min-height: 50vh;
+      }
+
+      .section_header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .about_stats {
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+
+      .team_grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer_grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer_bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Tech Overlay -->
+  <div class="tech-overlay" aria-hidden="true">
+    <div class="scanlines"></div>
+    <div class="tech-grid"></div>
+  </div>
+
+  <!-- Brand Spectrum Bar -->
+  <div class="brand-spectrum" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar_component">
+      <a href="index.html" class="navbar_logo">
+        <span class="logo-mark">R</span>
+        <span class="logo-text">RCPE</span>
+        <span class="logo-text-lab">LAB</span>
+      </a>
+
+      <div class="navbar_links">
+        <a href="index.html" class="navbar_link">Home</a>
+        <a href="services.html" class="navbar_link">Services</a>
+        <a href="portfolio.html" class="navbar_link">Work</a>
+        <a href="about.html" class="navbar_link active">About</a>
+        <a href="blog.html" class="navbar_link">Blog</a>
+        <a href="contact.html" class="navbar_link">Contact</a>
+        <a href="talent.html" class="navbar_link">Join Us</a>
+        <a href="https://calendly.com/contact-madebyrecipe/30min" target="_blank" class="btn-primary">Book a Call</a>
+      </div>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero_bg">ABT</div>
+    <div class="page-hero_orb page-hero_orb--1"></div>
+    <div class="page-hero_orb page-hero_orb--2"></div>
+
+    <div class="page-hero_content">
+      <div class="page-hero_label">
+        <span class="page-hero_label-dot"></span>
+        <span class="page-hero_label-text">Who We Are</span>
+      </div>
+      <h1 class="page-hero_title">About <span class="page-hero_title-accent">Us</span></h1>
+      <p class="page-hero_desc">
+        Three founders. One mission: build enterprise growth systems that empower businesses of all sizes across New England.
+      </p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="about_grid">
+      <div class="about_visual">
+        <span class="about_visual-text">R</span>
+        <span class="about_visual-label">New England</span>
+      </div>
+      <div class="about_content">
+        <h2>We're not another agency.<br />We're your growth team.</h2>
+        <p>
+          Recipe Labs was born from frustration. We watched agency after agency charge premium rates for templated strategies and junior talent. We knew there had to be a better way.
+        </p>
+        <p>
+          So we built it. A lean operation where senior operators work directly with clients. Where every recommendation is backed by data, not trends. Where results are guaranteed, not promised.
+        </p>
+        <p>
+          Serving New England, we partner with ambitious companies of all sizes—from local businesses to tech startups to established enterprises. We educate and empower our clients with enterprise-level solutions that better serve their customers and communities.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <div class="section_header">
+      <div>
+        <div class="section_label">The Team</div>
+        <h2 class="section_title">Meet the <span class="section_title-accent">Operators</span></h2>
+      </div>
+      <p class="section_desc">
+        No account managers. No junior staff. When you work with Recipe Labs, you work directly with founders.
+      </p>
+    </div>
+
+    <div class="team_grid">
+      <div class="team_card">
+        <div class="team_avatar">LSR</div>
+        <h3 class="team_name">Lance Simeon Reid</h3>
+        <div class="team_role">Co-Founder & Technical Director</div>
+        <p class="team_bio">Fullstack developer and AI systems architect. Builds the automation infrastructure that gives clients unfair advantages.</p>
+        <div class="team_achievements">
+          <div class="team_achievement">Built 12+ AI automation systems</div>
+          <div class="team_achievement">Music producer (30+ artists)</div>
+          <div class="team_achievement">50+ businesses empowered</div>
+        </div>
+      </div>
+
+      <div class="team_card">
+        <div class="team_avatar">AJ</div>
+        <h3 class="team_name">Ahmed Jibril</h3>
+        <div class="team_role">Co-Founder & Strategy Lead</div>
+        <p class="team_bio">Strategic operator who turns market chaos into opportunity. Specializes in distressed business consulting.</p>
+        <div class="team_achievements">
+          <div class="team_achievement">15+ distressed turnarounds</div>
+          <div class="team_achievement">Former investment analyst</div>
+          <div class="team_achievement">M&A advisory experience</div>
+        </div>
+      </div>
+
+      <div class="team_card">
+        <div class="team_avatar">AE</div>
+        <h3 class="team_name">Aaron Ellis</h3>
+        <div class="team_role">Co-Founder & Operations</div>
+        <p class="team_bio">The execution engine. Converts strategy into results with ruthless efficiency.</p>
+        <div class="team_achievements">
+          <div class="team_achievement">100% client retention rate</div>
+          <div class="team_achievement">Operations specialist</div>
+          <div class="team_achievement">47+ projects delivered</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta_content">
+      <span class="cta_urgency">
+        <span class="cta_urgency-dot"></span>
+        Only 5 client slots available for Q1 2026
+      </span>
+      <h2 class="cta_title">Ready to Scale?</h2>
+      <p class="cta_desc">Book a 30-minute discovery call. No pitch, just strategy. Walk away with actionable insights whether we work together or not.</p>
+      <a href="https://calendly.com/contact-madebyrecipe/30min" target="_blank" class="cta_btn">Schedule Your Call</a>
+      <p class="cta_guarantee">Free educational consultation included - No obligation</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer_grid">
+      <div class="footer_brand">
+        <a href="index.html" class="navbar_logo">
+          <span class="logo-mark">R</span>
+          <span class="logo-text">RCPE</span>
+          <span class="logo-text-lab">LAB</span>
+        </a>
+        <p>A creative agency engineering growth for brands ready to dominate. Serving New England.</p>
+        <div class="footer_tagline">Made By Recipe</div>
+      </div>
+
+      <div>
+        <h4 class="footer_title">Navigation</h4>
+        <div class="footer_links">
+          <a href="index.html" class="footer_link">Home</a>
+          <a href="services.html" class="footer_link">Services</a>
+          <a href="portfolio.html" class="footer_link">Work</a>
+          <a href="about.html" class="footer_link">About</a>
+          <a href="contact.html" class="footer_link">Contact</a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer_title">Services</h4>
+        <div class="footer_links">
+          <a href="services.html" class="footer_link">Social Media</a>
+          <a href="services.html" class="footer_link">Brand Design</a>
+          <a href="services.html" class="footer_link">Pitching</a>
+          <a href="services.html" class="footer_link">Events</a>
+          <a href="services.html" class="footer_link">SEO</a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer_title">Contact</h4>
+        <div class="footer_links">
+          <a href="mailto:contact@madebyrecipe.com" class="footer_link">contact@madebyrecipe.com</a>
+          <span class="footer_link">New England</span>
+          <a href="https://calendly.com/contact-madebyrecipe/30min" target="_blank" class="footer_link">Book a Call</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer_bottom">
+      <div>
+        <span class="footer_copyright">THE RECIPE LAB 2025 - All Rights Reserved</span>
+        <div class="footer_tagline">Corporate Identity</div>
+      </div>
+      <div class="footer_social">
+        <a href="https://linkedin.com" target="_blank" class="social_link" aria-label="LinkedIn">Li</a>
+        <a href="https://www.instagram.com/madebyrecipe?igsh=cXBzb3d2bTlienZv" target="_blank" class="social_link" aria-label="Instagram">Ig</a>
+        <a href="https://x.com" target="_blank" class="social_link" aria-label="X/Twitter">X</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.navbar_links');
+    if (hamburger) {
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    }
+  </script>
+</body>
+</html>

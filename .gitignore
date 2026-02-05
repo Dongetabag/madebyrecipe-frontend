@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# PHP specific (not needed for Vercel)
+api-proxy.php
+intake/submit.php
+intake/submissions.csv
+
+# Apache specific (not needed for Vercel)
+.htaccess
+
+# Sensitive data
+data/talent-applications.json
